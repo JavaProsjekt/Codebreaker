@@ -41,12 +41,12 @@ public class AppController {
 
         if(validity == 1){
             charerror.setVisible(true);
-        }
-        if(validity == 2){
             aferror.setVisible(true);
         }
-        if(validity == 3){
+        if(validity == 2){
             charerror.setVisible(true);
+        }
+        if(validity == 3){
             aferror.setVisible(true);
         }
         if (validity == 4) {
