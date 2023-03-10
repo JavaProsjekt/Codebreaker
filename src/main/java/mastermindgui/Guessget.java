@@ -35,7 +35,6 @@ public class Guessget {
 
         // Sjekker gjetningen for validitet
     public int Validitycheck(String guess){
-        guesscount += 1;    
         if(lengthcheck(guess) && charcheck(guess)){
             return 1;
         }
