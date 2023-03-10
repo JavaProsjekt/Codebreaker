@@ -31,12 +31,6 @@ public class AppController {
         if (guesscount < 5 && isGameOver == false) {
             onEnter();
         }
-        if (guesscount == 5) {
-            noguess.setVisible(true);
-            lose.setVisible(true);
-            isGameOver = true;
-            reset();
-        }
     }
 
     @FXML
@@ -83,6 +77,16 @@ public class AppController {
 
     @FXML
     private void Win(String gjett) {
+        if (isGameOver) {
+            return;
+        }
+        if (guesscount == 5) {
+            noguess.setVisible(true);
+            lose.setVisible(true);
+            isGameOver = true;
+            return;
+        }
+        
         if (gjett.equals(guess.code)) {
             winscreen.setVisible(true);
         } else {
