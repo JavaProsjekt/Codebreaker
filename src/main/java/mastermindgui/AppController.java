@@ -17,65 +17,105 @@ public class AppController {
     @FXML private ImageView charerror;
     @FXML private ImageView aferror;
     @FXML private ImageView winscreen;
-
+    @FXML private ImageView lose;
+    @FXML private ImageView noguess;
 
     private Guessget guess = new Guessget();
     private int currentRow = 0;
+    public int guesscount = 0;
+    private boolean isGameOver = false;
     
-    
-    
-    
-  
     
     @FXML
-    public void initialize() {
+    public void gameloop(){
+        if (guesscount < 5 && isGameOver == false) {
+            onEnter();
+        }
+    }
+
+    @FXML
+    public void initialize() { // Denne og starter overraskende bra. 
         for (int i = 0; i < guess.code.length(); i++) {
             codeGrid.add(new TextField(String.valueOf(guess.code.charAt(i))), i, 0);
             
         }
     }
-    
+
+
     
     @FXML
-    private void onEnter() {
+    private void onEnter() { // Funker faktisk helt ok as, litt wild egt.
         String gjett = BrukerInput.getText().toUpperCase();
         int validity = guess.Validitycheck(gjett);
-        
 
-        
         if(validity == 1){
             charerror.setVisible(true);
+            aferror.setVisible(true);
+            guesscount++;
         }
         if(validity == 2){
-            aferror.setVisible(true);
+            charerror.setVisible(true);
+            guesscount++;
         }
-        
-        if (validity == 3) {
+        if(validity == 3){
+            aferror.setVisible(true);
+            guesscount++;
+        }
+        if (validity == 4) {
             aferror.setVisible(false);
             charerror.setVisible(false);
+            guesscount++;
             for (int i = 0; i < gjett.length(); i++) {
                 charGrid.add(new TextField(String.valueOf(gjett.charAt(i))), i, currentRow);
+                
             }
             currentRow++;
+            Win(gjett);
         }
     }
 
 
     @FXML
-    private void Win(String gjett){
-        if(gjett == guess.code){
-            codeGrid.setVisible(true);
-            winscreen.setVisible(true);
-
-            }
+    private void Win(String gjett) {
+        if (isGameOver) {
+            return;
         }
-
+        if (guesscount == 5) {
+            noguess.setVisible(true);
+            lose.setVisible(true);
+            isGameOver = true;
+            return;
+        }
+        
+        if (gjett.equals(guess.code)) {
+            winscreen.setVisible(true);
+        } else {
+            winscreen.setVisible(false);
+        }
+    }
+    
+    
+    @FXML
+    private void startNewGame() {
+        guess = new Guessget(); // create a new instance of Guessget
+        currentRow = 0; // reset the current row to 0
+        guesscount = 0; // reset the guess count to 0
+        isGameOver = false; // reset the game over flag to false
+        codeGrid.getChildren().clear(); // clear the code grid
+        charGrid.getChildren().clear(); // clear the character grid
+        initialize(); // initialize the code grid with a new code
+        winscreen.setVisible(false); // hide the win screen
+        lose.setVisible(false); // hide the lose screen
+        noguess.setVisible(false); // hide the no guess screen
+    }
 
 
     @FXML
     public void reset(){
+        startNewGame(); // start a new game
+    }
+
     
-    }    
 }
     
 
