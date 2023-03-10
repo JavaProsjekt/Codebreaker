@@ -50,28 +50,26 @@ public class AppController {
             aferror.setVisible(true);
         }
         if (validity == 4) {
-            guesscount += 1;
-            Win(gjett);
             aferror.setVisible(false);
             charerror.setVisible(false);
             for (int i = 0; i < gjett.length(); i++) {
                 charGrid.add(new TextField(String.valueOf(gjett.charAt(i))), i, currentRow);
             }
             currentRow++;
+            Win(gjett);
         }
     }
 
 
-
-    @FXML // er ikke helt rett? hvorfor :(
-    private void Win(String gjett){
-        if (gjett == guess.code){
+    @FXML
+    private void Win(String gjett) {
+        if (gjett.equals(guess.code)) {
             winscreen.setVisible(true);
-        }
-        else{
+        } else {
             winscreen.setVisible(false);
         }
     }
+    
     
 
     @FXML
