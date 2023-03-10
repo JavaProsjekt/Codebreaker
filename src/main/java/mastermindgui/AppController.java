@@ -45,8 +45,11 @@ public class AppController {
         if(validity == 2){
             aferror.setVisible(true);
         }
-        
-        if (validity == 3) {
+        if(validity == 3){
+            charerror.setVisible(true);
+            aferror.setVisible(true);
+        }
+        if (validity == 4) {
             guesscount += 1;
             Win(gjett);
             aferror.setVisible(false);
