@@ -1,45 +1,58 @@
 package mastermindgui;
-import java.io.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
 public class highscore {
-    private String filename;
-    private TreeMap<Integer, String> scores;
-
-    public highscore(String filename) {
-        this.filename = filename;
-        this.scores = new TreeMap<>();
+    private static final String FILENAME = "highscores.txt"; // File name of the highscore file
+    private List<Integer> scores = new ArrayList<>(); // List to store the scores
+    
+    public void addScore(int score) {
+        scores.add(score); // Add the score to the list
+        Collections.sort(scores); // Sort the list in ascending order
+        Collections.reverse(scores); // Reverse the list to get descending order (fewer guesses = better)
+        saveScores(); // Save the scores to the highscore file
     }
-
-    public void addScore(int tries, String name) {
-        scores.put(tries, name);
+    
+    public List<Integer> getScores() {
+        return scores; // Return the list of scores
     }
-
-    public void writeToFile() {
-        try (PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(filename)))) {
-            for (Map.Entry<Integer, String> entry : scores.entrySet()) {
-                writer.println(entry.getKey() + "," + entry.getValue());
+    
+    private void saveScores() {
+        try {
+            File file = new File(FILENAME);
+            if (!file.exists()) {
+                file.createNewFile(); // Create the highscore file if it doesn't exist
             }
+            FileWriter writer = new FileWriter(file);
+            for (Integer score : scores) {
+                writer.write(score + "\n"); // Write each score to a new line in the file
+            }
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-    public void readFromFile() {
-        try (Scanner scanner = new Scanner(new File(filename))) {
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] parts = line.split(",");
-                int tries = Integer.parseInt(parts[0]);
-                String name = parts[1];
-                scores.put(tries, name);
+    
+    public void loadScores() {
+        try {
+            File file = new File(FILENAME);
+            if (!file.exists()) {
+                return; // Return if the highscore file doesn't exist
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + filename);
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextInt()) {
+                scores.add(scanner.nextInt()); // Add each score from the file to the list
+            }
+            scanner.close();
+            Collections.sort(scores); // Sort the list in ascending order
+            Collections.reverse(scores); // Reverse the list to get descending order (fewer guesses = better)
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
-
-    
 }
-
-

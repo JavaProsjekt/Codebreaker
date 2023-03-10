@@ -20,6 +20,7 @@ public class AppController {
     @FXML private ImageView lose;
     @FXML private ImageView noguess;
 
+    private highscore highscore = new highscore();
     private Guessget guess = new Guessget();
     private int currentRow = 0;
     public int guesscount = 0;
@@ -89,6 +90,7 @@ public class AppController {
         
         if (gjett.equals(guess.code)) {
             winscreen.setVisible(true);
+            highscore.addScore(guesscount);
         } else {
             winscreen.setVisible(false);
         }
