@@ -14,18 +14,23 @@ public class AppController {
     @FXML private TextField BrukerInput;
     @FXML private GridPane codeGrid;
     @FXML private GridPane charGrid;
+    @FXML private GridPane nameGrid;
     @FXML private ImageView charerror;
     @FXML private ImageView aferror;
     @FXML private ImageView winscreen;
     @FXML private ImageView lose;
     @FXML private ImageView noguess;
+    @FXML private ImageView namecharwrong;
 
-    private highscore highscore = new highscore();
+
+
+
     private Guessget guess = new Guessget();
     private int currentRow = 0;
     public int guesscount = 0;
     private boolean isGameOver = false;
-    
+    public String name;
+
     
     @FXML
     public void gameloop(){
@@ -90,7 +95,9 @@ public class AppController {
         
         if (gjett.equals(guess.code)) {
             winscreen.setVisible(true);
-            highscore.addScore(guesscount);
+            
+
+
         } else {
             winscreen.setVisible(false);
         }
@@ -117,6 +124,18 @@ public class AppController {
         startNewGame(); // start a new game
     }
 
+    @FXML
+    public void entername(){
+        name = BrukerInput.getText();
+        if(name.length() != 4){
+            namecharwrong.setVisible(true);
+        }
+        for (int i = 0; i < name.length(); i++) {
+            nameGrid.add(new TextField(String.valueOf(name.charAt(i))), i, 0);
+            
+        }
+
+    }
     
 }
     
