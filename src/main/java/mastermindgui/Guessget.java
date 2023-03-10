@@ -14,8 +14,6 @@ public class Guessget {
     
     String code = Kode.codegen(); // kaller på metoden codegen
     
-    
-
 
         // Sjekker gjetningen for validitet
     public int Validitycheck(String Guess){

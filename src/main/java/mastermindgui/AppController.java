@@ -21,28 +21,24 @@ public class AppController {
 
     private Guessget guess = new Guessget();
     private int currentRow = 0;
-    
-    
-    
+    public int guesscount = 0;
     
   
     
     @FXML
-    public void initialize() {
+    public void initialize() { // Denne og starter overraskende bra. 
         for (int i = 0; i < guess.code.length(); i++) {
             codeGrid.add(new TextField(String.valueOf(guess.code.charAt(i))), i, 0);
             
         }
     }
-    
+
     
     @FXML
-    private void onEnter() {
+    private void onEnter() { // Funker faktisk helt ok as, litt wild egt.
         String gjett = BrukerInput.getText().toUpperCase();
         int validity = guess.Validitycheck(gjett);
-        
 
-        
         if(validity == 1){
             charerror.setVisible(true);
         }
@@ -51,6 +47,8 @@ public class AppController {
         }
         
         if (validity == 3) {
+            guesscount += 1;
+            Win(gjett);
             aferror.setVisible(false);
             charerror.setVisible(false);
             for (int i = 0; i < gjett.length(); i++) {
@@ -61,20 +59,29 @@ public class AppController {
     }
 
 
-    @FXML
+
+    @FXML // er ikke helt rett? hvorfor :(
     private void Win(String gjett){
-        if(gjett == guess.code){
-            codeGrid.setVisible(true);
+        if (gjett == guess.code){
             winscreen.setVisible(true);
-
-            }
         }
-
-
+        else{
+            winscreen.setVisible(false);
+        }
+    }
+    
 
     @FXML
     public void reset(){
-    
+        guesscount = 0;
+        currentRow = 0;
+        charGrid.getChildren().clear();
+        codeGrid.getChildren().clear();
+        initialize();
+        winscreen.setVisible(false);
+        codeGrid.setVisible(false);
+        aferror.setVisible(false);
+        charerror.setVisible(false);
     }    
 }
     
