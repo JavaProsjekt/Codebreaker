@@ -107,5 +107,6 @@
             <Image url="@namecharwrong.png" />
          </image>
       </ImageView>
+      <Button layoutX="701.0" layoutY="553.0" mnemonicParsing="false" onAction="#ScoreReset" text="Reset Score" />
    </children>
 </AnchorPane>

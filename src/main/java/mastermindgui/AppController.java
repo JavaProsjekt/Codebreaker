@@ -24,7 +24,7 @@ public class AppController {
 
 
 
-
+    private Highscore highscore;
     private Guessget guess = new Guessget();
     private int currentRow = 0;
     public int guesscount = 0;
@@ -41,6 +41,8 @@ public class AppController {
 
     @FXML
     public void initialize() { // Denne og starter overraskende bra. 
+        highscore = new Highscore("highscores.txt");
+        highscore.loadScores();
         for (int i = 0; i < guess.code.length(); i++) {
             codeGrid.add(new TextField(String.valueOf(guess.code.charAt(i))), i, 0);
             
@@ -90,14 +92,13 @@ public class AppController {
             noguess.setVisible(true);
             lose.setVisible(true);
             isGameOver = true;
+            highscore.addScore(name, guesscount);
             return;
         }
         
         if (gjett.equals(guess.code)) {
             winscreen.setVisible(true);
-            
-
-
+            highscore.addScore(name, guesscount);
         } else {
             winscreen.setVisible(false);
         }
@@ -137,6 +138,12 @@ public class AppController {
 
     }
     
+    public void ScoreReset(){
+        highscore.clearScores();
+    }
+
+
+
 }
     
 
