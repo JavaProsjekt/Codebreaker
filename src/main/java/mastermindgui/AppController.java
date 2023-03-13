@@ -140,6 +140,8 @@ public class AppController {
     }
 
     private void updateCharGrid(String gjett){
+    // må på en måte få den til å sjekke om det bare er en av bokstavene skal være der om det er flere av samme bokstav
+    // må også få den til å lage en ny "variant hver gang" og ikke slette den forrige. 
         charGrid.getChildren().clear();
         for (int i = 0; i < gjett.length(); i++) {
             char c = gjett.charAt(i);
