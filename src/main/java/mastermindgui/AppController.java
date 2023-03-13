@@ -34,7 +34,23 @@ public class AppController {
 
 
     
-// CODEBREAKER FXML -------------------------------------------------------------------
+    public void setString(String name){
+        this.name = name;
+    }
+    
+    
+
+    @FXML
+    Label nameLabel;
+    public String displayname(String name){
+        if(name.length() != 4){
+            namecharwrong.setVisible(true);
+        }
+        else{
+            nameLabel.setText(name);
+        }
+        return this.name;
+    }
     @FXML
     public void gameloop(){
         if (guesscount < 5 && isGameOver == false) {
@@ -125,18 +141,6 @@ public class AppController {
         startNewGame(); // start a new game
     }
 
-    @FXML
-    Label nameLabel;
-    public void displayname(String name){
-        if(name.length() != 4){
-            namecharwrong.setVisible(true);
-        }
-        else{
-            nameLabel.setText(name);
-        }
-
-
-    }
     
     public void ScoreReset(){
         highscore.clearScores();

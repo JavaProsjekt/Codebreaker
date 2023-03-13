@@ -29,11 +29,13 @@ public class startController {
 
     @FXML
     public void starts(ActionEvent event) throws IOException {
-        String name = startinput.getText();
 
+        String name = startinput.getText();
+    
         FXMLLoader loader = new FXMLLoader(getClass().getResource("codebreaker.fxml"));
         root = loader.load();
         AppController controller = loader.getController();
+        controller.setString(name);
         controller.displayname(name);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
