@@ -52,7 +52,7 @@ public class AppController {
 
     
     @FXML
-    private void onEnter() { // Funker faktisk helt ok as, litt wild egt.
+    private void onEnter() { // Funker faktisk helt ok as, litt wild egt. veldig wild
         String gjett = BrukerInput.getText().toUpperCase();
         int validity = guess.Validitycheck(gjett);
 
