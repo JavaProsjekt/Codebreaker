@@ -22,8 +22,6 @@ public class AppController {
     @FXML private ImageView noguess;
     @FXML private ImageView namecharwrong;
 
-
-
     private Highscore highscore;
     private Guessget guess = new Guessget();
     private int currentRow = 0;
@@ -32,6 +30,7 @@ public class AppController {
     public String name;
 
     
+// CODEBREAKER FXML -------------------------------------------------------------------
     @FXML
     public void gameloop(){
         if (guesscount < 5 && isGameOver == false) {
@@ -150,15 +149,38 @@ public class AppController {
             boolean correctPos = pos == i;
             charGrid.add(new TextField(String.valueOf(gjett.charAt(i))), i, currentRow);
             String color = "red";
+            if(correctChar){
+                color = "yellow";
+            }
             if(correctChar && correctPos){
                 color = "green";
-            } else if(correctChar){
-                color = "yellow";
             }
             charGrid.getChildren().get(i).setStyle("-fx-background-color: " + color);
         }
 
     }
+
+    // Start.fxml -------------------------------------------------------------------
+
+   
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
     
