@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" 
+style="-fx-background-color: #071821;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mastermindgui.startController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="218.0" fitWidth="354.0" layoutX="123.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@CODEBREAKER.png" />
          </image>
       </ImageView>
-      <Button layoutX="273.0" layoutY="267.0" mnemonicParsing="false" onAction="#starting" text="start" />
+      <Button layoutX="278.0" layoutY="277.0" mnemonicParsing="false" onAction="#starts" text="Start" />
+      <TextField fx:id="startinput" layoutX="220.0" layoutY="243.0" />
+      <ImageView fitHeight="85.0" fitWidth="209.0" layoutX="196.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@name.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Namecheck" fitHeight="126.0" fitWidth="209.0" layoutX="195.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@namecharwrong.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="517.0" layoutY="356.0" mnemonicParsing="false" onAction="#next" text="Next" />
    </children>
 </AnchorPane>

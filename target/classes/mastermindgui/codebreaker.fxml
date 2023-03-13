@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,6 +9,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #071821;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mastermindgui.AppController">
    <children>
@@ -69,12 +68,6 @@
          </image>
       </ImageView>
       <Button layoutX="22.0" layoutY="553.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
-      <MenuButton layoutX="701.0" layoutY="1.0" mnemonicParsing="false" text="HighScores">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </MenuButton>
       <ImageView fx:id="noguess" fitHeight="54.0" fitWidth="99.0" layoutX="652.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@nomoreguesses.png" />
@@ -85,18 +78,6 @@
             <Image url="@Lose.png" />
          </image>
       </ImageView>
-      <GridPane fx:id="nameGrid" gridLinesVisible="true" layoutX="207.0" layoutY="54.0">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
-      <Button layoutX="621.0" layoutY="56.0" mnemonicParsing="false" onAction="#entername" text="Enter Name" />
       <ImageView fx:id="names" fitHeight="40.0" fitWidth="116.0" layoutX="208.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@name.png" />
@@ -108,5 +89,10 @@
          </image>
       </ImageView>
       <Button layoutX="701.0" layoutY="553.0" mnemonicParsing="false" onAction="#ScoreReset" text="Reset Score" />
+      <Label fx:id="nameLabel" layoutX="234.0" layoutY="54.0" prefHeight="31.0" prefWidth="205.0" textFill="#86c06c">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

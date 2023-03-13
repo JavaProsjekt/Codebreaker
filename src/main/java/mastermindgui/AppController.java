@@ -1,6 +1,7 @@
 package mastermindgui;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
@@ -22,12 +23,15 @@ public class AppController {
     @FXML private ImageView noguess;
     @FXML private ImageView namecharwrong;
 
+
     private Highscore highscore;
     private Guessget guess = new Guessget();
     private int currentRow = 0;
     public int guesscount = 0;
     private boolean isGameOver = false;
     public String name;
+
+
 
     
 // CODEBREAKER FXML -------------------------------------------------------------------
@@ -122,15 +126,15 @@ public class AppController {
     }
 
     @FXML
-    public void entername(){
-        name = BrukerInput.getText();
+    Label nameLabel;
+    public void displayname(String name){
         if(name.length() != 4){
             namecharwrong.setVisible(true);
         }
-        for (int i = 0; i < name.length(); i++) {
-            nameGrid.add(new TextField(String.valueOf(name.charAt(i))), i, 0);
-            
+        else{
+            nameLabel.setText(name);
         }
+
 
     }
     
@@ -164,7 +168,7 @@ public class AppController {
 
     }
 
-    // Start.fxml -------------------------------------------------------------------
+
 
    
     
