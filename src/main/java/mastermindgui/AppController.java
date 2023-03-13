@@ -143,12 +143,14 @@ public class AppController {
     // må også få den til å lage en ny "variant hver gang" og ikke slette den forrige. 
         charGrid.getChildren().clear();
         for (int i = 0; i < gjett.length(); i++) {
-            //indexof(c) funket ikke med gjentatte bokstaver, da blir char c også unødvendig
-            //char c = gjett.charAt(i);
-            //int pos = gjett.indexOf(c);
             int pos = i;
-            boolean correctChar = gjett.charAt(pos) == guess.code.charAt(pos);
-            boolean correctPos = pos == i;
+            boolean correctChar = false;
+            for (int j = 0; j < gjett.length(); j++) {
+                if (gjett.charAt(pos) == guess.code.charAt(j)){
+                    correctChar = true;
+                }   
+            }
+            boolean correctPos = (gjett.charAt(pos) == guess.code.charAt(pos));
             charGrid.add(new TextField(String.valueOf(gjett.charAt(i))), i, currentRow);
             String color = "red";
             if(correctChar){
