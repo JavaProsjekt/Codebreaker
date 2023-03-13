@@ -10,7 +10,7 @@ import javafx.scene.layout.GridPane;
 
 
 
-public class AppController {
+public class AppController{
     @FXML private TextField BrukerInput;
     @FXML private GridPane codeGrid;
     @FXML private GridPane charGrid;
