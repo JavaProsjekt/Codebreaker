@@ -73,10 +73,7 @@ public class AppController {
             aferror.setVisible(false);
             charerror.setVisible(false);
             guesscount++;
-            for (int i = 0; i < gjett.length(); i++) {
-                charGrid.add(new TextField(String.valueOf(gjett.charAt(i))), i, currentRow);
-                
-            }
+            updateCharGrid(gjett);
             currentRow++;
             Win(gjett);
         }
@@ -142,7 +139,24 @@ public class AppController {
         highscore.clearScores();
     }
 
+    private void updateCharGrid(String gjett){
+        charGrid.getChildren().clear();
+        for (int i = 0; i < gjett.length(); i++) {
+            char c = gjett.charAt(i);
+            int pos = gjett.indexOf(c);
+            boolean correctChar = gjett.charAt(pos) == guess.code.charAt(pos);
+            boolean correctPos = pos == i;
+            charGrid.add(new TextField(String.valueOf(gjett.charAt(i))), i, currentRow);
+            String color = "red";
+            if(correctChar && correctPos){
+                color = "green";
+            } else if(correctChar){
+                color = "yellow";
+            }
+            charGrid.getChildren().get(i).setStyle("-fx-background-color: " + color);
+        }
 
+    }
 
 }
     

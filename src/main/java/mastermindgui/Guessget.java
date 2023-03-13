@@ -62,13 +62,11 @@ public class Guessget {
         }
         if(position.size() < 2)
             System.out.println("You have a correct letter at" + position);
-
+ 
         else
         System.out.println("You have correct letters at" + position);
     }
     
 
-   
-    
    
 }
