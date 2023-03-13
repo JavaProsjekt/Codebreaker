@@ -136,10 +136,7 @@ public class AppController {
     }
 
 
-    @FXML
-    public void reset(){
-        startNewGame(); // start a new game
-    }
+   
 
     
     public void ScoreReset(){

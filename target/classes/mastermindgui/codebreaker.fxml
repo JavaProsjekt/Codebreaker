@@ -67,7 +67,6 @@
             <Image url="@GuessSprite.png" />
          </image>
       </ImageView>
-      <Button layoutX="22.0" layoutY="553.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
       <ImageView fx:id="noguess" fitHeight="54.0" fitWidth="99.0" layoutX="652.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@nomoreguesses.png" />
