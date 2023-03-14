@@ -36,12 +36,20 @@ public class startController {
         root = loader.load();
         AppController controller = loader.getController();
         controller.setString(name);
-        controller.displayname(name);
+        if(name.length() == 0){
+            Namecheck.setVisible(true);
+        }
+        if(name.length() != 4){
+            Namecheck.setVisible(true);
+        }
+        else{
+            controller.displayname(name);
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
 
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
     
     @FXML

@@ -7,6 +7,7 @@ public class Highscore {
     
     private List<Score> scores;
     private String filename;
+  
     
     public Highscore(String filename) {
         this.filename = filename;
@@ -23,7 +24,7 @@ public class Highscore {
         return scores;
     }
     
-    private void sortScores() {
+    void sortScores() {
         scores.sort(Comparator.comparingInt(Score::getGuesses));
     }
     

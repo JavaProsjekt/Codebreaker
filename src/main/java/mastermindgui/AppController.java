@@ -54,14 +54,10 @@ public class AppController {
     @FXML
     Label nameLabel;
     public String displayname(String name){
-        if(name.length() != 4){
-            namecharwrong.setVisible(true);
-        }
-        else{
-            nameLabel.setText(name);
-        }
+        nameLabel.setText(name);
         return this.name;
     }
+
     @FXML
     public void gameloop(){
         if (guesscount < 5 && isGameOver == false) {
@@ -73,6 +69,7 @@ public class AppController {
     public void initialize() { // Denne og starter overraskende bra. 
         highscore = new Highscore("highscores.txt");
         highscore.loadScores();
+        highscore.sortScores();
         for (int i = 0; i < guess.code.length(); i++) {
             codeGrid.add(new TextField(String.valueOf(guess.code.charAt(i))), i, 0);
             

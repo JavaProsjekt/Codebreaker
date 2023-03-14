@@ -21,6 +21,8 @@ public class highScoreController {
     private Scene scene;
 
 
+    
+
 
     public static void readFileIntoTextArea(String filePath, TextArea textArea) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -39,7 +41,7 @@ public class highScoreController {
         readFileIntoTextArea("highscores.txt", output );
     }
 
-
+    // sender til start igjen.
     @FXML
     public void back(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("start.fxml"));
