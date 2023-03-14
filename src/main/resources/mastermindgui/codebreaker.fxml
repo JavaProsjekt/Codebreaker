@@ -93,5 +93,6 @@
             <Font size="25.0" />
          </font>
       </Label>
+      <Button fx:id="highscore" layoutX="39.0" layoutY="541.0" mnemonicParsing="false" onAction="#highscoreShow" text="Highscore" />
    </children>
 </AnchorPane>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #071821;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mastermindgui.highScoreController">
+   <children>
+      <Button fx:id="refresh" layoutX="14.0" layoutY="57.0" mnemonicParsing="false" onAction="#refresher" text="Refresh" />
+      <TextArea fx:id="output" editable="false" layoutX="74.0" layoutY="83.0" prefHeight="264.0" prefWidth="418.0" />
+      <ImageView fitHeight="26.0" fitWidth="176.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@highscore.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

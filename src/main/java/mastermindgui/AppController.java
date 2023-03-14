@@ -1,11 +1,18 @@
 package mastermindgui;
 
+import java.io.IOException;
+import javafx.scene.Node;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 
 
@@ -31,7 +38,11 @@ public class AppController {
     private boolean isGameOver = false;
     public String name;
 
-
+    // Highscoreshow ----
+    private Parent root;
+    private Stage stage;
+    private Scene scene;
+    //-------------------
 
     
     public void setString(String name){
@@ -169,6 +180,15 @@ public class AppController {
 
     }
 
+    // sender deg til highscore
+    @FXML
+    public void highscoreShow(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("highscore.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 
    
