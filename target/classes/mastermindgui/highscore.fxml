@@ -15,5 +15,6 @@
             <Image url="@highscore.png" />
          </image>
       </ImageView>
+      <Button layoutX="17.0" layoutY="361.0" mnemonicParsing="false" onAction="#back" text="Back" />
    </children>
 </AnchorPane>

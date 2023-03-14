@@ -3,14 +3,22 @@ package mastermindgui;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
+import javafx.scene.Node;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 
 
 
 public class highScoreController {
     @FXML private TextArea output;
+    private Parent root;
+    private Stage stage;
+    private Scene scene;
 
 
 
@@ -31,5 +39,14 @@ public class highScoreController {
         readFileIntoTextArea("highscores.txt", output );
     }
 
+
+    @FXML
+    public void back(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("start.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }
