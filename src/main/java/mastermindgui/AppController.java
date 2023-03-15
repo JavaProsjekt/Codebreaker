@@ -1,6 +1,9 @@
 package mastermindgui;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.scene.Node;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import javafx.stage.Stage;
 
 
@@ -151,31 +155,42 @@ public class AppController {
         highscore.clearScores();
     }
 
-    private void updateCharGrid(String gjett){
-    // må på en måte få den til å sjekke om det bare er en av bokstavene skal være der om det er flere av samme bokstav
-    // må også få den til å lage en ny "variant hver gang" og ikke slette den forrige. 
-        charGrid.getChildren().clear();
-        for (int i = 0; i < gjett.length(); i++) {
-            int pos = i;
-            boolean correctChar = false;
-            for (int j = 0; j < gjett.length(); j++) {
-                if (gjett.charAt(pos) == guess.code.charAt(j)){
-                    correctChar = true;
-                }   
-            }
-            boolean correctPos = (gjett.charAt(pos) == guess.code.charAt(pos));
-            charGrid.add(new TextField(String.valueOf(gjett.charAt(i))), i, currentRow);
-            String color = "red";
-            if(correctChar){
-                color = "yellow";
-            }
-            if(correctChar && correctPos){
-                color = "green";
-            }
-            charGrid.getChildren().get(i).setStyle("-fx-background-color: " + color);
-        }
+ // Declare a List to store the previous guesses
+private List<String> previousGuesses = new ArrayList<>();
 
+private void updateCharGrid(String gjett) {
+    // Add the current guess to the List of previous guesses
+    previousGuesses.add(gjett);
+
+    // Create a new row in the charGrid for the current guess
+    charGrid.getRowConstraints().add(new RowConstraints(20));
+    charGrid.setVgap(5);
+
+    // Add the characters of the current guess to the existing charGrid
+    for (int i = 0; i < gjett.length(); i++) {
+        int pos = i;
+        boolean correctChar = false;
+        for (int j = 0; j < gjett.length(); j++) {
+            if (gjett.charAt(pos) == guess.code.charAt(j)){
+                correctChar = true;
+            }   
+        }
+        boolean correctPos = (gjett.charAt(pos) == guess.code.charAt(pos));
+        TextField charField = new TextField(String.valueOf(gjett.charAt(i)));
+        String color = "red";
+        if(correctChar){
+            color = "yellow";
+        }
+        if(correctChar && correctPos){
+            color = "green";
+        }
+        charField.setStyle("-fx-background-color: " + color);
+        charGrid.add(charField, i, currentRow);
     }
+
+    // Increment the currentRow for the next guess
+    currentRow+=1;
+}
 
     // sender deg til highscore
     @FXML
