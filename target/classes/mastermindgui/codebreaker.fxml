@@ -44,7 +44,7 @@
       <Label layoutX="113.0" layoutY="423.0" prefHeight="26.0" prefWidth="129.0" text="Den Hemmelige koden" textFill="#86c06c" />
       <ImageView fitHeight="89.0" fitWidth="160.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@CODEBREAKER.png" />
+            <Image url="@../../../../../../../Desktop/CODEBREAKERBIGGER.png" />
          </image>
       </ImageView>
       <ImageView fx:id="charerror" fitHeight="54.0" fitWidth="160.0" layoutX="22.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true" visible="false">
@@ -79,7 +79,7 @@
       </ImageView>
       <ImageView fx:id="names" fitHeight="40.0" fitWidth="116.0" layoutX="208.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@name.png" />
+            <Image url="@../../../../../../../Desktop/namebigger.png" />
          </image>
       </ImageView>
       <ImageView fx:id="namecharwrong" fitHeight="36.0" fitWidth="186.0" layoutX="351.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" visible="false">
