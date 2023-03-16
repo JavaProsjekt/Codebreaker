@@ -25,8 +25,8 @@ public class AppController {
     @FXML private GridPane codeGrid;
     @FXML private GridPane charGrid;
     @FXML private GridPane nameGrid;
-    @FXML private ImageView charerror;
-    @FXML private ImageView aferror;
+    @FXML public ImageView charerror;
+    @FXML public ImageView aferror;
     @FXML private ImageView winscreen;
     @FXML private ImageView lose;
     @FXML private ImageView noguess;

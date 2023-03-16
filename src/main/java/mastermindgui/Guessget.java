@@ -43,8 +43,4 @@ public class Guessget {
         return 4;
     }
    
-
-    
-
-
 }
