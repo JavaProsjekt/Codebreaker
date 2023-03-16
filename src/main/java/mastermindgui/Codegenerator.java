@@ -2,12 +2,15 @@ package mastermindgui;
 
 import java.util.Random;
 
+
+/* Lager en tilfeldig kode med 4 bokstaver fra A - F. Bare uppercase. */
+
 public class Codegenerator {
     public String code;
 
     public String codegen(){
-        int leftLimit = 65; // letter 'a'
-        int rightLimit = 70; // letter 'z'
+        int leftLimit = 65; // 'A'
+        int rightLimit = 70; // 'F'
         int targetStringLength = 4;
         Random random = new Random();
         StringBuilder buffer = new StringBuilder(targetStringLength);

@@ -48,13 +48,14 @@ public class AppController {
     private Scene scene;
     //-------------------
 
-   
+   /* Setter name variablen som blir definert i startController-filen slik at man kan 
+    bruke den i denne klassen.*/
     public void setString(String name){
         this.name = name;
     }
     
     
-
+    /* Setter displayer navnet man inputer i startController-filen slik at den syns pi vinduet. */
     @FXML
     Label nameLabel;
     public String displayname(String name){
@@ -62,6 +63,8 @@ public class AppController {
         return this.name;
     }
 
+
+    /* Gameloopen rettogslett */
     @FXML
     public void gameloop(){
         if (guesscount < 5 && isGameOver == false) {
@@ -69,6 +72,7 @@ public class AppController {
         }
     }
 
+    /* Kjører når spillet starter og initerer en rekke klasser samt generer koden og gjør den synlig for debuggingpurposes. */
     @FXML
     public void initialize() { // Denne og starter overraskende bra. 
         highscore = new Highscore("highscores.txt");
@@ -83,7 +87,8 @@ public class AppController {
 
     
     @FXML
-    private void onEnter() { // Funker faktisk helt ok as, litt wild egt. veldig wild
+    private void onEnter() { /*  Når man trykker enterknappen i vinduet, sender den gjettet inn i denne metoden, som sjekker om gjettet er gyldig. 
+        ved å sende det gjennom 4 ifsetninger. Hvis det er gyldig, så sender den gjettet videre til updateCharGrid, som oppdaterer charGrid med riktig farge.*/
         String gjett = BrukerInput.getText().toUpperCase();
         int validity = guess.Validitycheck(gjett);
 
@@ -112,6 +117,8 @@ public class AppController {
 
 
     @FXML
+    /*Denne sjekker wincondition og om alt er til rette for en win, så blir winscreen satt til 
+    true og highscoredokumentet blir oppdatert */
     private void Win(String gjett) {
         if (isGameOver) {
             return;
@@ -132,67 +139,53 @@ public class AppController {
         }
     }
     
-    
     @FXML
-    private void startNewGame() {
-        guess = new Guessget(); // create a new instance of Guessget
-        currentRow = 0; // reset the current row to 0
-        guesscount = 0; // reset the guess count to 0
-        isGameOver = false; // reset the game over flag to false
-        codeGrid.getChildren().clear(); // clear the code grid
-        charGrid.getChildren().clear(); // clear the character grid
-        initialize(); // initialize the code grid with a new code
-        winscreen.setVisible(false); // hide the win screen
-        lose.setVisible(false); // hide the lose screen
-        noguess.setVisible(false); // hide the no guess screen
-    }
-
-
-   
-
-    
+    /*Sletter alle highscorene i highscoredokumentet */
     public void ScoreReset(){
         highscore.clearScores();
     }
 
+
  // Declare a List to store the previous guesses
-private List<String> previousGuesses = new ArrayList<>();
+    private List<String> previousGuesses = new ArrayList<>();
 
-private void updateCharGrid(String gjett) {
-    // Add the current guess to the List of previous guesses
-    previousGuesses.add(gjett);
+    private void updateCharGrid(String gjett) {
+        // Add the current guess to the List of previous guesses
+        previousGuesses.add(gjett);
 
-    // Create a new row in the charGrid for the current guess
-    charGrid.getRowConstraints().add(new RowConstraints(20));
-    charGrid.setVgap(5);
+        // Create a new row in the charGrid for the current guess
+        charGrid.getRowConstraints().add(new RowConstraints(20));
+        charGrid.setVgap(5);
 
-    // Add the characters of the current guess to the existing charGrid
-    for (int i = 0; i < gjett.length(); i++) {
-        int pos = i;
-        boolean correctChar = false;
-        for (int j = 0; j < gjett.length(); j++) {
-            if (gjett.charAt(pos) == guess.code.charAt(j)){
-                correctChar = true;
-            }   
+        // Add the characters of the current guess to the existing charGrid
+        for (int i = 0; i < gjett.length(); i++) {
+            int pos = i;
+            boolean correctChar = false;
+            for (int j = 0; j < gjett.length(); j++) {
+                if (gjett.charAt(pos) == guess.code.charAt(j)){
+                    correctChar = true;
+                }   
+            }
+            boolean correctPos = (gjett.charAt(pos) == guess.code.charAt(pos));
+            TextField charField = new TextField(String.valueOf(gjett.charAt(i)));
+            String color = "red";
+            if(correctChar){
+                color = "yellow";
+            }
+            if(correctChar && correctPos){
+                color = "green";
+            }
+            charField.setStyle("-fx-background-color: " + color);
+            charGrid.add(charField, i, currentRow);
         }
-        boolean correctPos = (gjett.charAt(pos) == guess.code.charAt(pos));
-        TextField charField = new TextField(String.valueOf(gjett.charAt(i)));
-        String color = "red";
-        if(correctChar){
-            color = "yellow";
-        }
-        if(correctChar && correctPos){
-            color = "green";
-        }
-        charField.setStyle("-fx-background-color: " + color);
-        charGrid.add(charField, i, currentRow);
+
+        // Increment the currentRow for the next guess
+        currentRow+=1;
     }
 
-    // Increment the currentRow for the next guess
-    currentRow+=1;
-}
 
-    // sender deg til highscore
+
+    // sender deg til highscorevinduet
     @FXML
     public void highscoreShow(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("highscore.fxml"));
