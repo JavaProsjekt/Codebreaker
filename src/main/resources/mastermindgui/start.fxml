@@ -10,14 +10,14 @@
    <children>
       <ImageView fitHeight="218.0" fitWidth="354.0" layoutX="123.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Desktop/CODEBREAKERBIGGER.png" />
+            <Image url="@CODEBREAKERBIGGER.png" />
          </image>
       </ImageView>
       <Button layoutX="278.0" layoutY="277.0" mnemonicParsing="false" onAction="#starts" text="Start" />
       <TextField fx:id="startinput" layoutX="220.0" layoutY="243.0" />
       <ImageView fitHeight="85.0" fitWidth="209.0" layoutX="196.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Desktop/namebigger.png" />
+            <Image url="@namebigger.png" />
          </image>
       </ImageView>
       <ImageView fx:id="Namecheck" fitHeight="126.0" fitWidth="209.0" layoutX="195.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true" visible="false">
