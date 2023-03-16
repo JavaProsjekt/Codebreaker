@@ -48,7 +48,7 @@ public class AppController {
     private Scene scene;
     //-------------------
 
-    
+   
     public void setString(String name){
         this.name = name;
     }
@@ -203,24 +203,7 @@ private void updateCharGrid(String gjett) {
     }
 
 
-   
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 
 
 }
