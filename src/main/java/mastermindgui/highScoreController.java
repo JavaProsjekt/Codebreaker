@@ -20,10 +20,6 @@ public class highScoreController {
     private Stage stage;
     private Scene scene;
 
-
-    
-
-
     public static void readFileIntoTextArea(String filePath, TextArea textArea) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line = reader.readLine();
@@ -35,7 +31,6 @@ public class highScoreController {
             e.printStackTrace();
         }
     }
-
 
     public void refresher(){
         readFileIntoTextArea("highscores.txt", output );

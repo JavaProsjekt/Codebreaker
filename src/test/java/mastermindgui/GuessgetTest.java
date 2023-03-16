@@ -21,8 +21,8 @@ class GuessgetTest {
 
     @Test
     void testCharCheck() {
-        assertTrue(guessget.charcheck("ABCD"));
-        assertFalse(guessget.charcheck("ABZDS"));
+        assertTrue(guessget.charcheck("ZZZZ"));
+        assertFalse(guessget.charcheck("ABCD"));
     }
 
     @Test
