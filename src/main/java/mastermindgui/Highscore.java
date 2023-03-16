@@ -3,6 +3,8 @@ package mastermindgui;
 import java.io.*;
 import java.util.*;
 
+import javafx.scene.control.TextArea;
+
 public class Highscore {
     
     private List<Score> scores;
@@ -76,6 +78,19 @@ public class Highscore {
             return guesses;
         }
         
+    }
+
+
+    public static void readFileIntoTextArea(String filePath, TextArea textArea) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line = reader.readLine();
+            while (line != null) {
+                textArea.appendText(line + "\n");
+                line = reader.readLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

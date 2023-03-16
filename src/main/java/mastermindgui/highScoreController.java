@@ -1,7 +1,7 @@
 package mastermindgui;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+
+
 import java.io.IOException;
 import javafx.scene.Node;
 import javafx.event.ActionEvent;
@@ -15,25 +15,14 @@ import javafx.stage.Stage;
 
 
 public class highScoreController {
-    @FXML private TextArea output;
+    @FXML public TextArea output;
     private Parent root;
     private Stage stage;
     private Scene scene;
 
-    public static void readFileIntoTextArea(String filePath, TextArea textArea) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line = reader.readLine();
-            while (line != null) {
-                textArea.appendText(line + "\n");
-                line = reader.readLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
+   
     public void refresher(){
-        readFileIntoTextArea("highscores.txt", output );
+        Highscore.readFileIntoTextArea("highscores.txt", output );
     }
 
     // sender til start igjen.
