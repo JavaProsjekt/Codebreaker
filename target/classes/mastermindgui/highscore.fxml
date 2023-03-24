@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #071821;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mastermindgui.highScoreController">
    <children>
-      <Button fx:id="refresh" layoutX="14.0" layoutY="57.0" mnemonicParsing="false" onAction="#refresher" text="Refresh" />
+      <Button fx:id="refresh" layoutX="17.0" layoutY="51.0" mnemonicParsing="false" onAction="#refresher" text="Refresh" />
       <TextArea fx:id="output" editable="false" layoutX="74.0" layoutY="83.0" prefHeight="264.0" prefWidth="418.0" />
       <ImageView fitHeight="26.0" fitWidth="176.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>

@@ -83,6 +83,7 @@ public class Highscore {
 
     public static void readFileIntoTextArea(String filePath, TextArea textArea) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            textArea.setText("");
             String line = reader.readLine();
             while (line != null) {
                 textArea.appendText(line + "\n");
