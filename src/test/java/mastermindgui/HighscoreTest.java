@@ -17,7 +17,7 @@ public class HighscoreTest {
     @BeforeEach
     public void setUp() {
         highscore = new Highscore("test_scores.csv");
-        highscore.clearScores();
+        Highscore.clearScores();
     }
     
     @Test
@@ -42,7 +42,7 @@ public class HighscoreTest {
         highscore.addScore("Bob", 6);
         highscore.addScore("Charlie", 7);
         
-        highscore.clearScores();
+        Highscore.clearScores();
         
         List<Highscore.Score> scores = highscore.getScores();
         assertEquals(0, scores.size());

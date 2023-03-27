@@ -30,7 +30,10 @@ public class highScoreController {
     }
 
     
-
+    public void clear(ActionEvent event) throws IOException {
+        Highscore.clearScores();
+        refresher();
+    }
     
 
     // sender til start igjen.

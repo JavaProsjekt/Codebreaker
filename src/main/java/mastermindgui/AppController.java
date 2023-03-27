@@ -140,7 +140,7 @@ public class AppController {
     @FXML
     /*Sletter alle highscorene i highscoredokumentet */
     public void ScoreReset(){
-        highscore.clearScores();
+        Highscore.clearScores();
     }
 
 

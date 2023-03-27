@@ -7,13 +7,13 @@ import javafx.scene.control.TextArea;
 
 public class Highscore {
     
-    private List<Score> scores;
-    private String filename;
+    private static List<Score> scores;
+    private static String filename;
   
     
     public Highscore(String filename) {
-        this.filename = filename;
-        this.scores = new ArrayList<>();
+        Highscore.filename = filename;
+        Highscore.scores = new ArrayList<>();
     }
     
     public void addScore(String name, int guesses) {
@@ -30,7 +30,7 @@ public class Highscore {
         scores.sort(Comparator.comparingInt(Score::getGuesses));
     }
     
-    private void saveScores() {
+    private static void saveScores() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(filename, false))) {
             for (Score score : scores) {
                 writer.println(score.getName() + "," + score.getGuesses());
@@ -40,7 +40,7 @@ public class Highscore {
         }
     }
     
-    public void clearScores() {
+    public static void clearScores() {
         scores.clear();
         saveScores();
     }

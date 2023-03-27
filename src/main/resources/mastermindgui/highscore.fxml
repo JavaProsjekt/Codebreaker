@@ -16,5 +16,6 @@
          </image>
       </ImageView>
       <Button layoutX="17.0" layoutY="361.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Button layoutX="102.0" layoutY="52.0" mnemonicParsing="false" onAction="#clear" text="Reset Scores" />
    </children>
 </AnchorPane>
