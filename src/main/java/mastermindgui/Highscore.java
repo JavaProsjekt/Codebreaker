@@ -39,12 +39,13 @@ public class Highscore {
             e.printStackTrace();
         }
     }
-    
+    /* Sletter scorene */
     public static void clearScores() {
         scores.clear();
         saveScores();
     }
     
+    /* Laster inn scorene */
     public void loadScores() {
         try (Scanner scanner = new Scanner(new File(filename))) {
             while (scanner.hasNextLine()) {
@@ -69,18 +70,18 @@ public class Highscore {
             this.name = name;
             this.guesses = guesses;
         }
-        
+        /* Henter navn */
         public String getName() {
             return name;
         }
-        
+        /*h Henter Gjetninger */
         public int getGuesses() {
             return guesses;
         }
         
     }
 
-
+    /* Mater score inn i textarea */
     public static void readFileIntoTextArea(String filePath, TextArea textArea) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             textArea.setText("");
