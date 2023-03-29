@@ -5,6 +5,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/*
+  
+ Main funksjon, denne starter programmet og instansierer vinduet start.fxml, 
+ som er det første vinduet som vises. 
+ 
+ */
+
 
 
 
@@ -21,9 +28,6 @@ public class App extends Application {
 			e.printStackTrace();
 		}
     }
-
-
-
 
 
     public static void main(String[] args) {

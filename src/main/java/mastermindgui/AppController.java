@@ -183,8 +183,6 @@ public class AppController {
 
 
 
-
-
     // sender deg til highscorevinduet
     @FXML
     public void highscoreShow(ActionEvent event) throws IOException {
@@ -195,11 +193,7 @@ public class AppController {
         stage.show();
 
     }
-
-
-  
-
-
+    
 }
     
 

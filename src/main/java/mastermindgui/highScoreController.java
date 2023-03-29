@@ -21,7 +21,6 @@ public class highScoreController {
     private Scene scene;
 
     public void initialize() {
-        // Call the refresher method to refresh the TextArea on open
         refresher();
     }
 
