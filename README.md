@@ -7,6 +7,7 @@ Opprettet for prosjekt i TDT4100, i samarbeid med Teo Moura.
 
 Gjenstående:
     - tester
+    - Vil lage en "debug-mode" hvor den hemmelige koden syns, denne modusen skal man velge på startsiden.
 
 
 ![winscreen](https://user-images.githubusercontent.com/97731056/222205512-f4cc6d5b-af1c-4d3d-8ce3-1acea7cb526a.png)

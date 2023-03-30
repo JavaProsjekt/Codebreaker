@@ -49,14 +49,6 @@ public class startController {
             stage.setScene(scene);
             stage.show();
         }
-
     }
-    
-    
-
-
-
-
-
 }
 
