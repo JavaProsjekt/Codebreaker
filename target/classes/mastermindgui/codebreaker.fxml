@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -94,5 +95,6 @@
          </font>
       </Label>
       <Button fx:id="highscore" layoutX="39.0" layoutY="541.0" mnemonicParsing="false" onAction="#highscoreShow" text="Highscore" />
+      <ToggleButton fx:id="debugbutton" layoutX="696.0" layoutY="14.0" mnemonicParsing="false" onAction="#debugmode" text="Debugmode" />
    </children>
 </AnchorPane>
