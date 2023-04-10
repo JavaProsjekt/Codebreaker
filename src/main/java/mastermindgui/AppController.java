@@ -156,15 +156,70 @@ public class AppController {
         charGrid.setVgap(5);
 
         // Add the characters of the current guess to the existing charGrid
+        //Teller instanser av hver bokstav for å ordentlig finne gule/grønne bokser senere
+        int aCount = guess.code.length() - guess.code.replace("A","").length();
+        int bCount = guess.code.length() - guess.code.replace("B","").length();
+        int cCount = guess.code.length() - guess.code.replace("C","").length();
+        int dCount = guess.code.length() - guess.code.replace("D","").length();            
+        int eCount = guess.code.length() - guess.code.replace("E","").length();
+        int fCount = guess.code.length() - guess.code.replace("F","").length();
         for (int i = 0; i < gjett.length(); i++) {
             int pos = i;
             boolean correctChar = false;
+            boolean correctPos = false;
+            //Finner først grønne bokser og teller at en grønn boks har blitt funnet for den spesifikke bokstaven
+            if(gjett.charAt(pos) == guess.code.charAt(pos)){
+                correctPos = true;
+                correctChar = true;
+                if (gjett.charAt(pos) == 'A'){
+                    aCount -= 1;
+                }
+                if (gjett.charAt(pos) == 'B'){
+                    bCount -= 1;
+                }
+                if (gjett.charAt(pos) == 'C'){
+                    cCount -= 1;
+                }
+                if (gjett.charAt(pos) == 'D'){
+                    dCount -= 1;
+                }
+                if (gjett.charAt(pos) == 'E'){
+                    eCount -= 1;
+                }
+                if (gjett.charAt(pos) == 'F'){
+                    fCount -= 1;
+                }
+            } else
             for (int j = 0; j < gjett.length(); j++) {
                 if (gjett.charAt(pos) == guess.code.charAt(j)){
-                    correctChar = true;
+                    //For å sette riktig mengde bokser til gule sjekkes nå mengden restere instanser av en karakter for å
+                    //se om correctChar nok en gang skal settes til True eller om den skal forbli false videre
+                    if (aCount > 0 && gjett.charAt(pos) == 'A'){    
+                        correctChar = true;
+                        aCount -= 1;
+                    }
+                    if (bCount > 0 && gjett.charAt(pos) == 'B'){    
+                        correctChar = true;
+                        bCount -= 1;
+                    }
+                    if (cCount > 0 && gjett.charAt(pos) == 'C'){    
+                        correctChar = true;
+                        cCount -= 1;
+                    }
+                    if (dCount > 0 && gjett.charAt(pos) == 'D'){    
+                        correctChar = true;
+                        dCount -= 1;
+                    }
+                    if (eCount > 0 && gjett.charAt(pos) == 'E'){    
+                        correctChar = true;
+                        eCount -= 1;
+                    }
+                    if (fCount > 0 && gjett.charAt(pos) == 'F'){    
+                        correctChar = true;
+                        fCount -= 1;
+                    }
                 }   
             }
-            boolean correctPos = (gjett.charAt(pos) == guess.code.charAt(pos));
             TextField charField = new TextField(String.valueOf(gjett.charAt(i)));
             String color = "red";
             if(correctChar){
@@ -182,9 +237,8 @@ public class AppController {
     }
 
 
-
     // sender deg til highscorevinduet
-    @FXML
+    @FXML       
     public void highscoreShow(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("highscore.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
