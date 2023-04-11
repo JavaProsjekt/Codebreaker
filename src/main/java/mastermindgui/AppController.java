@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
@@ -31,6 +32,7 @@ public class AppController {
     @FXML private ImageView lose;
     @FXML private ImageView noguess;
     @FXML private ImageView namecharwrong;
+    @FXML private ToggleButton debugbutton;
 
 
     private Highscore highscore;
@@ -45,6 +47,9 @@ public class AppController {
     private Stage stage;
     private Scene scene;
     //-------------------
+
+
+    
 
    /* Setter name variablen som blir definert i startController-filen slik at man kan 
     bruke den i denne klassen.*/
@@ -78,8 +83,10 @@ public class AppController {
         highscore.sortScores();
         for (int i = 0; i < guess.code.length(); i++) {
             codeGrid.add(new TextField(String.valueOf(guess.code.charAt(i))), i, 0);
-            
         }
+        codeGrid.setVisible(false);
+        
+
     }
 
 
@@ -132,6 +139,7 @@ public class AppController {
         if (gjett.equals(guess.code)) {
             winscreen.setVisible(true);
             highscore.addScore(name, guesscount);
+            codeGrid.setVisible(true);
         } else {
             winscreen.setVisible(false);
         }
@@ -248,6 +256,17 @@ public class AppController {
 
     }
     
-}
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("start.fxml"));
     
+    @FXML
+    public void debugmode(ActionEvent event) throws IOException {
+        if (debugbutton.isSelected()) {
+            codeGrid.setVisible(true);
+        } else {
+            codeGrid.setVisible(false);
+        }
+    }
 
+
+   
+}
