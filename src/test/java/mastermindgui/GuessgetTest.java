@@ -16,12 +16,18 @@ class GuessgetTest {
     @Test
     void testLengthCheck() {
         assertTrue(guessget.lengthcheck("ABC"));
+        assertTrue(guessget.lengthcheck("ABCDE"));
+        assertTrue(guessget.lengthcheck(""));
         assertFalse(guessget.lengthcheck("ABCD"));
     }
 
     @Test
     void testCharCheck() {
         assertTrue(guessget.charcheck("ZZZZ"));
+        assertTrue(guessget.charcheck("ABCZ"));
+        assertTrue(guessget.charcheck("ABZC"));
+        assertTrue(guessget.charcheck("AB C"));
+        assertTrue(guessget.charcheck("1ABC"));
         assertFalse(guessget.charcheck("ABCD"));
     }
 

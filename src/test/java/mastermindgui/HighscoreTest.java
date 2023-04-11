@@ -38,9 +38,14 @@ public class HighscoreTest {
     
     @Test
     public void testClearScores() {
+
+        assertEquals(0, highscore.getScores().size());
+
         highscore.addScore("Alice", 5);
         highscore.addScore("Bob", 6);
         highscore.addScore("Charlie", 7);
+
+        assertEquals(3, highscore.getScores().size());
         
         Highscore.clearScores();
         
